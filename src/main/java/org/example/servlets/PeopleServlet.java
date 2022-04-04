@@ -79,6 +79,8 @@ public class PeopleServlet extends HttpServlet {
 
         Set<ConstraintViolation<Person>> constraintViolations = personDAO.validatePerson(person);
         if (!constraintViolations.isEmpty()) {
+            person.setId(Integer.valueOf(request.getParameter("id")));
+            request.setAttribute("person", person);
             request.setAttribute("errors", constraintViolations);
             request.getRequestDispatcher("/WEB-INF/editPerson.jsp").forward(request, response);
         } else {
@@ -98,6 +100,7 @@ public class PeopleServlet extends HttpServlet {
         }
         String name = request.getParameter("name");
         String email = request.getParameter("email");
+
         return new Person(name, age, email);
     }
 }

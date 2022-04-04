@@ -1,15 +1,12 @@
 package org.example.servlets;
 
 import org.example.dao.PersonDAO;
-import org.example.models.Person;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.HashSet;
 
 @WebServlet(name = "editPersonServlet", urlPatterns = {"/people/edit"})
 public class EditPersonServlet extends HttpServlet {
